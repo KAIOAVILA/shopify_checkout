@@ -244,17 +244,20 @@ function construirPGshipping() {
     }
 }
 
-var mainBairro = jQuery('<div data-address-field="neighborhood" class="field field--half field--required"></div>')
-var wrapperBairro = jQuery('<div class="field__input-wrapper"></div>')
+document.addEventListener('readystatechange', function() {
+    var mainBairro = jQuery('<div data-address-field="neighborhood" class="field field--half field--required"></div>')
+    var wrapperBairro = jQuery('<div class="field__input-wrapper"></div>')
+    var labelBairro = jQuery('<label class="field__label field__label--visible" for="checkout_shipping_neighborhood">Bairro</label>')
+    var inputBairro = jQuery('<input placeholder="Bairro" autocomplete="neighborhood" data-backup="checkout_shipping_neighborhood" class="field__input" aria-required="true" size="50" type="text" value="" name="checkout[shipping_address][checkout_shipping_neighborhood]" id="checkout_shipping_neighborhood" maxlength="50">')
+    jQuery(wrapperBairro).append(labelBairro)
+    jQuery(wrapperBairro).append(inputBairro)
+    jQuery(mainBairro).append(wrapperBairro)
+    jQuery('[data-address-field="address1"]').after(mainBairro)
+    var validateBairro = jQuery('<p class="field__message field__message--error" id="error-for-bairro">Por favor, insira um bairro válido</p>')
+    jQuery(mainBairro).after(validateBairro)
+})
 
-var labelBairro = jQuery('<label class="field__label field__label--visible" for="checkout_shipping_neighborhood">Bairro</label>')
-var inputBairro = jQuery('<input placeholder="Bairro" autocomplete="neighborhood" data-backup="checkout_shipping_neighborhood" class="field__input" aria-required="true" size="50" type="text" value="" name="checkout[shipping_address][checkout_shipping_neighborhood]" id="checkout_shipping_neighborhood" maxlength="50">')
-jQuery(wrapperBairro).append(labelBairro)
-jQuery(wrapperBairro).append(inputBairro)
-jQuery(mainBairro).append(wrapperBairro)
-jQuery('[data-address-field="address1"]').after(mainBairro)
-var validateBairro = jQuery('<p class="field__message field__message--error" id="error-for-bairro">Por favor, insira um bairro válido</p>')
-jQuery(mainBairro).after(validateBairro)
+
 
 
 
