@@ -166,6 +166,83 @@ function getCep(e, t, n, i) {
             }
         })
 }
+function getdesconto() {
+    var e = "";
+    try {
+        e = document.querySelector(".order-summary__section--discount .tags-list").outerText
+    } catch (t) {
+        e = null
+    }
+    return e
+}
+function getpais() {
+    var e = "";
+    try {
+        e = fieldCountry.value
+    } catch (t) {
+        e = null
+    }
+    return e
+}
+
+function verificar() {
+    var e = getdesconto()
+      , t = getpais();
+    e == desconto && t == pais || (clearInterval(contador),
+    setTimeout(function() {
+        (document.querySelector(".section--shipping-address") || digitais && document.querySelector(".section--billing-address")) && construirPGshipping(),
+        desconto = getdesconto(),
+        pais = getpais(),
+        contador = setInterval(verificar, 1e3)
+    }, 100))
+}
+
+function construirPGshipping() {
+    if (novoElemento.classList = "",
+    novoElemento.innerHTML = "",
+    "Brazil" != (fieldCountry = document.querySelector("#checkout_shipping_address_country") || (digitais ? document.querySelector("#checkout_billing_address_country") : null)).value) {
+        var e = ["checkout_shipping_address_phone", "checkout_shipping_address_company", "checkout_shipping_address_zip", "checkout_billing_address_phone", "checkout_billing_address_company", "checkout_billing_address_zip", "titular_doc"];
+        for (var t in e)
+            try {
+                var n = document.getElementById(e[t]);
+                n.masked.destroy(),
+                clearInputStatus(n)
+            } catch (e) {
+                console.log(e)
+            }
+    } else {
+        var i;
+        i = plus55 ? "+55 (00) 00000-0000" : "(00) 00000-0000",
+        enPhone && (initMask("checkout_shipping_address_phone", i, blockPhone),
+        digitais && initMask("checkout_billing_address_phone", i, blockPhone)),
+        enCPF && (initMask("checkout_shipping_address_company", "000.000.000-00", blockCPF, validarCPF),
+        digitais && initMask("checkout_billing_address_company", "000.000.000-00", blockCPF, validarCPF)),
+        enCEP && (initMask("checkout_shipping_address_zip", "00000-000", blockCEP),
+        digitais && initMask("checkout_billing_address_zip", "00000-000", blockCEP)),
+        novoElemento.classList.add("field", "field--half", "find-zip-container"),
+        novoElemento.innerHTML = '<div class="field__input-wrapper">' + (lembraCEP ? '<a href="http://www.buscacep.correios.com.br/sistemas/buscacep/" target="_blank" class="checkout-zip-link" style="display: inline-block;padding: 15px 0;color:#000;text-decoration: underline;">Não lembra seu CEP?</a>' : "") + "</div>";
+        var r = document.querySelector('[data-address-field="country"]')
+          , o = document.querySelector('[data-address-field="province"]')
+          , a = document.querySelector('[data-address-field="zip"]')
+          , s = document.querySelector('[data-address-field="address1"]')
+          , l = document.querySelector("#checkout_shipping_address_address1") || (digitais ? document.querySelector("#checkout_billing_address_address1") : null)
+          , u = document.querySelector("#checkout_shipping_address_zip") || (digitais ? document.querySelector("#checkout_billing_address_zip") : null)
+          , c = document.querySelector("#checkout_shipping_address_city") || (digitais ? document.querySelector("#checkout_billing_address_city") : null)
+          , d = document.querySelector("#checkout_shipping_address_province") || (digitais ? document.querySelector("#checkout_billing_address_province") : null);
+        s.insertAdjacentElement("beforebegin", a),
+        s.insertAdjacentElement("beforebegin", novoElemento),
+        a.classList.add("field--half"),
+        r.classList.add("field--half"),
+        o.classList.add("field--half"),
+        u.addEventListener("input", function(e) {
+            0 == e.target.value.length ? (clearInputStatus(e.target),
+            e.target.erro = !1) : 9 == e.target.value.length && getCep(e.target, l, c, d)
+        }, !1),
+        u.addEventListener("blur", function(e) {
+            e.target.value.length < 9 && setInputError(e.target)
+        }, !1)
+    }
+}
 
 var link2 = document.createElement("link")
 , link3 = document.createElement("link");
@@ -175,3 +252,6 @@ link2.href = "https://use.fontawesome.com/releases/v5.6.3/css/all.css",
 link3.href =  "https://kaioavila.github.io/shopify_checkout/cep.css";
 document.getElementsByTagName("head")[0].appendChild(link2),
 document.getElementsByTagName("head")[0].appendChild(link3);
+
+var fieldCountry, desconto = getdesconto(), pais = getpais(), contador = setInterval(verificar, 1e3), novoElemento = document.createElement("div");
+(document.querySelector(".section--shipping-address") || digitais && document.querySelector(".section--billing-address")) && construirPGshipping();
