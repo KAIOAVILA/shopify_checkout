@@ -172,6 +172,6 @@ var link2 = document.createElement("link")
 link2.rel = "stylesheet",
 link3.rel = "stylesheet",
 link2.href = "https://use.fontawesome.com/releases/v5.6.3/css/all.css",
-link3.href = URL + "/css/cep.css";
+link3.href =  "https://kaioavila.github.io/shopify_checkout/cep.css";
 document.getElementsByTagName("head")[0].appendChild(link2),
 document.getElementsByTagName("head")[0].appendChild(link3);
