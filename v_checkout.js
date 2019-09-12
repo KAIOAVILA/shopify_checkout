@@ -255,6 +255,18 @@ document.addEventListener('readystatechange', function() {
     jQuery('[data-address-field="address1"]').after(mainBairro)
     var validateBairro = jQuery('<p class="field__message field__message--error" id="error-for-bairro">Por favor, insira um bairro válido</p>')
     jQuery(mainBairro).after(validateBairro)
+
+
+
+    var mainNumber = jQuery('<div data-address-field="number" class="field field--required field--half"></div>')
+    var wrapperNumber = jQuery('<div class="field__input-wrapper" style="display:inline-block;float:right;"></div>')
+    var labelNumber = jQuery('<label class="field__label field__label--visible" for="address_number">nº</label>')
+    var inputNumber = jQuery('<input placeholder="nº" autocorrect="off" data-google-autocomplete="true" data-google-autocomplete-title="Sugestões" class="field__input" aria-required="true" size="6" type="text" id="address_number" maxlength="8">')
+    jQuery(wrapperNumber).append(labelNumber)
+    jQuery(wrapperNumber).append(inputNumber)
+    jQuery(mainNumber).append(wrapperNumber)
+    jQuery(validateBairro).after(mainNumber)
+
 })
 
 
