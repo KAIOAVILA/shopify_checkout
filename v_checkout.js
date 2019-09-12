@@ -139,7 +139,7 @@ function removerAcentos(e) {
     return t
 }
 
-function getCep(e, t, n, i) {
+function getCep(e, t, n, i, y) {
     var r = document.createElement("span");
     r.classList.add("loading"),
         e.insertAdjacentElement("afterend", r),
@@ -157,7 +157,7 @@ function getCep(e, t, n, i) {
                             n.value = o.localidade,
                             i.value = o.uf,
                             t.value = o.logradouro,
-                            "" != o.bairro && (t.value += " - Bairro: " + o.bairro))
+                            "" != o.bairro && (y.value = o.bairro))
             },
             error: function () {
                 e.erro = !0,
@@ -228,6 +228,7 @@ function construirPGshipping() {
             , l = document.querySelector("#checkout_shipping_address_address1") || (digitais ? document.querySelector("#checkout_billing_address_address1") : null)
             , u = document.querySelector("#checkout_shipping_address_zip") || (digitais ? document.querySelector("#checkout_billing_address_zip") : null)
             , c = document.querySelector("#checkout_shipping_address_city") || (digitais ? document.querySelector("#checkout_billing_address_city") : null)
+            , y = document.querySelector("#checkout_shipping_neighborhood") || (digitais ? document.querySelector("#checkout_shipping_neighborhood") : null)
             , d = document.querySelector("#checkout_shipping_address_province") || (digitais ? document.querySelector("#checkout_billing_address_province") : null);
         s.insertAdjacentElement("beforebegin", a),
             s.insertAdjacentElement("beforebegin", novoElemento),
@@ -236,7 +237,7 @@ function construirPGshipping() {
             o.classList.add("field--half"),
             u.addEventListener("input", function (e) {
                 0 == e.target.value.length ? (clearInputStatus(e.target),
-                    e.target.erro = !1) : 9 == e.target.value.length && getCep(e.target, l, c, d)
+                    e.target.erro = !1) : 9 == e.target.value.length && getCep(e.target, l, c, d, y)
             }, !1),
             u.addEventListener("blur", function (e) {
                 e.target.value.length < 9 && setInputError(e.target)
