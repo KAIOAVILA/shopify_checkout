@@ -1812,15 +1812,18 @@ $(document).ready(function () {
     });
 
 
+    function resetButton() {
+        $('#continue_button').removeClass('btn--loading');
+        $('#continue_button').removeAttr('disabled');
+    }
+
     $(document).on('submit', '[data-step="contact_information"] form', function (e) {
-
-        debugger;
-
         if ($("[data-step='contact_information'] #checkout_shipping_address_first_name").length > 0) {
             if ($("[data-step='contact_information'] #checkout_shipping_address_first_name").val() == '') {
                 alert("Informe o nome");
                 $("[data-step='contact_information'] #checkout_shipping_address_first_name").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1828,6 +1831,7 @@ $(document).ready(function () {
                 alert("Informe o nome");
                 $(".section--billing-address #checkout_shipping_address_first_name").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1837,6 +1841,7 @@ $(document).ready(function () {
                 alert("Informe o sobrenome");
                 $("[data-step='contact_information'] #checkout_shipping_address_last_name").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1844,6 +1849,7 @@ $(document).ready(function () {
                 alert("Informe o sobrenome");
                 $(".section--billing-address #checkout_shipping_address_last_name").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1858,6 +1864,7 @@ $(document).ready(function () {
                     alert('Informe um CPF/CNPJ válido');
                     $("[data-step='contact_information'] #checkout_shipping_CPFCNPJ").closest('.field').removeClass('field--success').addClass('field--error');
                     e.preventDefault();
+                    resetButton();
                     return false;
                 }
             } else {
@@ -1869,6 +1876,7 @@ $(document).ready(function () {
                         $('#checkout_shipping_CPFCNPJ').closest('.field').removeClass('field--success').addClass('field--error');
                         alert('Informe um CPF/CNPJ válido');
                         e.preventDefault();
+                        resetButton();
                         $(".section--billing-address #checkout_shipping_CPFCNPJ").closest('.field').removeClass('field--success').addClass('field--error');
                         return false;
                     }
@@ -1881,6 +1889,7 @@ $(document).ready(function () {
                 alert("Informe número de telefone ou celular!");
                 $("[data-step='contact_information'] #checkout_shipping_address_phone").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1888,6 +1897,7 @@ $(document).ready(function () {
                 alert("Informe número de telefone ou celular!");
                 $(".section--billing-address #checkout_shipping_address_phone").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1897,6 +1907,7 @@ $(document).ready(function () {
                 alert("Informe o CEP");
                 $("[data-step='contact_information'] #checkout_shipping_address_zip").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1904,6 +1915,7 @@ $(document).ready(function () {
                 alert("Informe o CEP");
                 $(".section--billing-address #checkout_shipping_address_zip").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1914,6 +1926,7 @@ $(document).ready(function () {
                 alert("Informe o endereço");
                 $("[data-step='contact_information'] #checkout_shipping_address_address1").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1921,6 +1934,7 @@ $(document).ready(function () {
                 alert("Informe o endereço");
                 $(".section--billing-address #checkout_shipping_address_address1").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1931,6 +1945,7 @@ $(document).ready(function () {
                 alert("Informe o bairro");
                 $("[data-step='contact_information'] #checkout_shipping_neighborhood").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1938,6 +1953,7 @@ $(document).ready(function () {
                 alert("Informe o bairro");
                 $(".section--billing-address #checkout_shipping_neighborhood").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1949,6 +1965,7 @@ $(document).ready(function () {
             $(".section--billing-address #address_number").closest('.field').removeClass('field--success').addClass('field--error');
             e.preventDefault();
             $('.checkout-loading').hide();
+            resetButton();
             $('#address_number').parent().addClass('field--error');
             return;
         }
@@ -1959,6 +1976,7 @@ $(document).ready(function () {
                 alert("Informe a cidade");
                 $("[data-step='contact_information'] #checkout_shipping_address_city").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1966,6 +1984,7 @@ $(document).ready(function () {
                 alert("Informe a cidade");
                 $(".section--billing-address #checkout_shipping_address_city").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1975,6 +1994,7 @@ $(document).ready(function () {
                 alert("Informe o país");
                 $("[data-step='contact_information'] #checkout_shipping_address_country").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1982,6 +2002,7 @@ $(document).ready(function () {
                 alert("Informe o país");
                 $(".section--billing-address #checkout_shipping_address_country").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
@@ -1991,6 +2012,7 @@ $(document).ready(function () {
                 alert("Informe o estado");
                 $("[data-step='contact_information'] #checkout_shipping_address_province").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         } else {
@@ -1998,6 +2020,7 @@ $(document).ready(function () {
                 alert("Informe o estado");
                 $(".section--billing-address #checkout_shipping_address_province").closest('.field').removeClass('field--success').addClass('field--error');
                 e.preventDefault();
+                resetButton();
                 return;
             }
         }
