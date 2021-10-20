@@ -569,7 +569,7 @@ $(document).ready(function () {
                         }
                     }
                 }
-                if ($(elements.$inputComplementoEndereco).length > 0) {
+                /*if ($(elements.$inputComplementoEndereco).length > 0) {
                     if ($(elements.$inputComplementoEndereco).val() == '') {
                         alert("Informe complemento, casa...");
                         $(elements.$checkoutLoading).hide();
@@ -583,7 +583,7 @@ $(document).ready(function () {
                         elemento.preventDefault();
                         return;
                     }
-                }
+                }*/
                 if ($(elements.$inputTelefoneEndereco).length > 0) {
                     if ($(elements.$inputTelefoneEndereco).val() == '') {
                         alert("Informe número de telefone ou celular!");
