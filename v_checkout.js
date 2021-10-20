@@ -482,7 +482,7 @@ $(document).ready(function () {
                     }
 
                     if ($(rootElement + ' ' + numberElement).length == 0) {
-                        $(rootElement + ' [data-address-field="address1"]').after('<div data-address-field="number" class="field field--required"><div class="field__input-wrapper" style="display:inline-block;float:right;"><label class="field__label field__label--visible" for="' + numberElement.replace('#', '') + '">nº</label><input placeholder="nº" autocorrect="off" data-google-autocomplete="true" data-google-autocomplete-title="Sugestões" class="field__input" aria-required="true" size="6" type="text" id="' + numberElement.replace('#', '') + '"></div></div>');
+                        $(rootElement + ' [data-address-field="address1"]').after('<div data-address-field="number" class="field field--required"><div class="field__input-wrapper"><label class="field__label field__label--visible" for="' + numberElement.replace('#', '') + '">nº</label><input placeholder="nº" autocorrect="off" data-google-autocomplete="true" data-google-autocomplete-title="Sugestões" class="field__input" aria-required="true" size="6" type="text" id="' + numberElement.replace('#', '') + '"></div></div>');
 
                         if ($(rootElement + ' [data-address-field="address1"]').length > 0 && $(rootElement + ' [data-address-field="address1"]').val().indexOf(', - ') > -1) {
                             var temp = $(rootElement + ' [data-address-field="address1"]').val().substring($(rootElement + ' [data-address-field="address1"]').val().indexOf(', - ') + 4);
