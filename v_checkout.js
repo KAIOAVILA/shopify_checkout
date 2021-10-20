@@ -508,8 +508,9 @@ $(document).ready(function () {
                     $('#address_number').mask("00000000");
                     $('#checkout_shipping_address_zip').mask("00000-000");
                     $('#checkout_shipping_CPFCNPJ').mask('000.000.000-000');
+                    $('#checkout_shipping_CPFCNPJ').closest('.field').hide();
                     
-                    
+         
 
                 }
                 helpers.formatFields();
@@ -1854,7 +1855,7 @@ $(document).ready(function () {
             }
         }
 
-        if ($("[data-step='contact_information'] #checkout_shipping_CPFCNPJ").length > 0) {
+        /*if ($("[data-step='contact_information'] #checkout_shipping_CPFCNPJ").length > 0) {
             if ($("[data-step='contact_information'] #checkout_shipping_CPFCNPJ").length > 0) {
                 var retornocnpj = helpers.validarCNPJ($('#checkout_shipping_CPFCNPJ').val());
 
@@ -1882,7 +1883,7 @@ $(document).ready(function () {
                     }
                 }
             }
-        }
+        }*/
 
         if ($("[data-step='contact_information'] #checkout_shipping_address_phone").length > 0) {
             if ($("[data-step='contact_information'] #checkout_shipping_address_phone").val() == '') {
@@ -2079,7 +2080,7 @@ $(document).ready(function () {
         $('[data-step="contact_information"] [data-address-field="phone"]').after(fcep);
         $('[data-step="contact_information"] [data-address-field="zip"]').after(fziplink);
         $('[data-step="contact_information"] [data-address-field="address1"]').after(fbairro);
-        $('[data-step="contact_information"] [data-address-field="neighborhood"]').after(fnumero);
+        $('[data-step="contact_information"] [data-address-field="neighborhood"]').before(fnumero);
         debugger;
         $('[data-step="contact_information"] #checkout_shipping_address_phone').closest('.field').addClass('field--half');
         
