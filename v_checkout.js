@@ -2113,7 +2113,7 @@ $(document).ready(function () {
         $('[data-step="contact_information"] [data-address-field="phone"]').after(fcep);
         $('[data-step="contact_information"] [data-address-field="zip"]').after(fziplink);
         $('[data-step="contact_information"] [data-address-field="address1"]').after(fbairro);
-        $('[data-step="contact_information"] [data-address-field="neighborhood"]').after(fnumero);
+        $('[data-step="contact_information"] [data-address-field="neighborhood"]').before(fnumero);
     
         preecheEnderecoLogado();
         
