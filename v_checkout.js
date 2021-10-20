@@ -390,7 +390,7 @@ $(document).ready(function () {
                     $(rootElement + ' [data-address-field="zip"]').before('<div data-address-field="companyCPFCNPJ" class="field field--half field--required  show-floating-label field--show-floating-label"> <div class="field__input-wrapper"><label class="field__label field__label--visible" for="' + cpfCnpjId.replace('#').trim() + '">CPF</label> <input placeholder="CPF" autocomplete="shipping organization" data-backup="companyCPFCNPJ" class="field__input" aria-required="true" size="14" type="text" value="" name="checkout[shipping_address][' + cpfCnpjId.replace('#', '').trim() + ']" id="' + cpfCnpjId.replace('#', '').trim() + '" maxlength="14"> </div></div><p class="field__message field__message--error" id="error-for-cpf">Por favor, insira um CPF válido</p>');
                 }
                 if ($(neighborhoodId).length == 0) {
-                    $(rootElement + ' [data-address-field="address2"]').after('<div data-address-field="neighborhood" class="field field--half field--required  field--show-floating-label"> <div class="field__input-wrapper"><label class="field__label field__label--visible" for="' + neighborhoodId.replace('#', '').trim() + '">Complemento</label> <input placeholder="Bairro" autocomplete="neighborhood" data-backup="checkout_shipping_neighborhood" class="field__input" aria-required="true" size="50" type="text" value="" name="checkout[shipping_address][' + neighborhoodId.replace('#', '').trim() + ']" id="' + neighborhoodId.replace('#', '').trim() + '" maxlength="50"> </div></div><p class="field__message field__message--error" id="error-for-bairro">Por favor, insira um complemento válido</p>');
+                    $(rootElement + ' [data-address-field="address2"]').after('<div data-address-field="neighborhood" class="field field--required  field--show-floating-label"> <div class="field__input-wrapper"><label class="field__label field__label--visible" for="' + neighborhoodId.replace('#', '').trim() + '">Complemento</label> <input placeholder="Bairro" autocomplete="neighborhood" data-backup="checkout_shipping_neighborhood" class="field__input" aria-required="true" size="50" type="text" value="" name="checkout[shipping_address][' + neighborhoodId.replace('#', '').trim() + ']" id="' + neighborhoodId.replace('#', '').trim() + '" maxlength="50"> </div></div><p class="field__message field__message--error" id="error-for-bairro">Por favor, insira um complemento válido</p>');
                 }
 
                 if ($(rootElement + ' [data-address-field="number"].hidden').length > 0) {
@@ -509,7 +509,7 @@ $(document).ready(function () {
                     $('#checkout_shipping_address_zip').mask("00000-000");
                     $('#checkout_shipping_CPFCNPJ').mask('000.000.000-000');
                     $('#checkout_shipping_CPFCNPJ').closest('.field').hide();
-                    
+                    $('[data-address-field="address2"]').addClass('field--half')
          
 
                 }

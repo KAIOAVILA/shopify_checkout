@@ -1,6 +1,6 @@
 {
   "name": "shopify_checkout",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
   "main": "v_checkout.js",
   "scripts": {
