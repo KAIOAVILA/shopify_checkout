@@ -509,7 +509,7 @@ $(document).ready(function () {
                     $('#checkout_shipping_address_zip').mask("00000-000");
                     $('#checkout_shipping_CPFCNPJ').mask('000.000.000-000');
                     $('#checkout_shipping_CPFCNPJ').closest('.field').hide();
-                    $('[data-address-field="address2"]').addClass('field--half')
+                    $('[data-address-field="address1"]').addClass('field--half')
          
 
                 }
