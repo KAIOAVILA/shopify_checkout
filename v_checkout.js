@@ -380,7 +380,7 @@ $(document).ready(function () {
 
     initializeIntervalFields = function (rootElement, numberElement, zipId, cpfCnpjId, neighborhoodId) {
         var userInfoControllerInterval = setInterval(function () {
-            if($('[placeholder]="Rua e número da casa"').length > 0) {
+            if($('[placeholder="Rua e número da casa"]').length > 0) {
                 $('#checkout_shipping_address_address1').attr('placeholder', 'Rua')
             }
             if ($(rootElement).length > 0) {
