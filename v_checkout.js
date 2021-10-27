@@ -380,8 +380,12 @@ $(document).ready(function () {
 
     initializeIntervalFields = function (rootElement, numberElement, zipId, cpfCnpjId, neighborhoodId) {
         var userInfoControllerInterval = setInterval(function () {
+            if($('[data-address-civic-number-warning]').is(":visible")) {
+                $('[data-address-civic-number-warning]').hide();
+            }
             if($('[placeholder="Rua e número da casa"]').length > 0) {
-                $('#checkout_shipping_address_address1').attr('placeholder', 'Rua')
+                $('[for="checkout_shipping_address_address1"]').text('Rua');
+                $('#checkout_shipping_address_address1').attr('placeholder', 'Rua');
             }
             if ($(rootElement).length > 0) {
 
