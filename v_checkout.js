@@ -178,7 +178,7 @@ $(document).ready(function () {
                             for (var endereco in conteudo) {
 
                                 //TODO melhorar implementação
-                                var linha = $('<tr class="js-seleciona-cep" data-cep="' + conteudo[endereco].cep + '"><td class="small zipAddress">' + conteudo[endereco].logradouro + ' - ' + conteudo[endereco].bairro + ' - ' + conteudo[endereco].localidade + ' ' + '</td><td class="fwb">' + conteudo[endereco].cep + '</td><td class="small"><a class="seleciona-cep" href="#" data-cep="' + conteudo[endereco].cep + '">Selecionar</a></td></tr>');
+                                var linha = $('<tr class="js-seleciona-cep" data-cep="' + conteudo[endereco].cep + '"><td class="small zipAddress">' + conteudo[endereco].logradouro + ', ' + conteudo[endereco].bairro + ', ' + conteudo[endereco].localidade + ' ' + '</td><td class="fwb">' + conteudo[endereco].cep + '</td><td class="small"><a class="seleciona-cep" href="#" data-cep="' + conteudo[endereco].cep + '">Selecionar</a></td></tr>');
                                 var linha2 = $('<div class="box field--half"><p class="title-style">' + conteudo[endereco].logradouro + '-' + conteudo[endereco].bairro + '-' + conteudo[endereco].localidade + '-' + '</p><p class="cep">' + conteudo[endereco].cep + '</p><a class="seleciona-cep js-seleciona-cep" href="#" data-cep="' + conteudo[endereco].cep + '">Selecionar</a></div>');
 
                                 $(elements.$newTabelaBuscaCep).append(linha);
@@ -484,8 +484,8 @@ $(document).ready(function () {
                     if ($(rootElement + ' ' + numberElement).length == 0) {
                         $(rootElement + ' [data-address-field="address1"]').after('<div data-address-field="number" class="field field--required"><div class="field__input-wrapper"><label class="field__label field__label--visible" for="' + numberElement.replace('#', '') + '">nº</label><input placeholder="nº" autocorrect="off" data-google-autocomplete="true" data-google-autocomplete-title="Sugestões" class="field__input" aria-required="true" size="6" type="text" id="' + numberElement.replace('#', '') + '"></div></div>');
 
-                        if ($(rootElement + ' [data-address-field="address1"]').length > 0 && $(rootElement + ' [data-address-field="address1"]').val().indexOf(', - ') > -1) {
-                            var temp = $(rootElement + ' [data-address-field="address1"]').val().substring($(rootElement + ' [data-address-field="address1"]').val().indexOf(', - ') + 4);
+                        if ($(rootElement + ' [data-address-field="address1"]').length > 0 && $(rootElement + ' [data-address-field="address1"]').val().indexOf(', , ') > -1) {
+                            var temp = $(rootElement + ' [data-address-field="address1"]').val().substring($(rootElement + ' [data-address-field="address1"]').val().indexOf(', , ') + 4);
 
                             if (temp.indexOf('-') == -1)
                                 $(numberElement).val(temp.substring(0).replace(/[^0-9\.]+/g, ""));
@@ -686,7 +686,7 @@ $(document).ready(function () {
                     var rua = parts[0];
                     var bairro = parts[parts.length - 1];
 
-                    $('#checkout_shipping_address_address1').val(rua.trim() + " - " + $('#address_number').val().trim() + ' - ' + bairro.trim());
+                    $('#checkout_shipping_address_address1').val(rua.trim() + ", " + $('#address_number').val().trim() + ', ' + bairro.trim());
                 }
 
                 if ($('#checkout_billing_address_address1').length > 0) {
@@ -697,7 +697,7 @@ $(document).ready(function () {
                     var rua = parts[0];
                     var bairro = parts[parts.length - 1];
 
-                    $('#checkout_billing_address_address1').val(rua.trim() + " - " + $('#address_number_billing').val().trim() + ' - ' + bairro.trim());
+                    $('#checkout_billing_address_address1').val(rua.trim() + ", " + $('#address_number_billing').val().trim() + ', ' + bairro.trim());
                 }
             },
             clickButtonDiscount: function () {
@@ -2031,7 +2031,7 @@ $(document).ready(function () {
         var rua = $('#checkout_shipping_address_address1').val();
         var n = $('#address_number').val();
         var bairro = $('#checkout_shipping_neighborhood').val();
-        endereco_completo = rua + " - "+ n +" - "+ bairro;
+        endereco_completo = rua + ", "+ n +", "+ bairro;
         $('#checkout_shipping_address_address1').val(endereco_completo);
         
 
